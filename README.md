@@ -7,10 +7,12 @@ GYM SPACE APP MERN stack
 ## The Project Description
 
 What problem does your application solve?
---> My application solves the problem of gymers who are newbies and wondering which exercise workout to do to match their fitness goals.
+
+My application solves the problem of gymers who are newbies and wondering which exercise workout to do to match their fitness goals.
 
 What does your application do? What features contribute to solving given issues?
---> In my application,
+
+In my application,
 
 - For those who are new to gym, it will provide list of exercise of each part of the body.
 - For those who are gym-aholic, they can track the exercise they did and share their new achievements.
@@ -19,7 +21,8 @@ What does your application do? What features contribute to solving given issues?
 - It provides users with a broad view of calories they consumed and burnt in day/week/month through charts.
 
 Some of the challenges you faced and features you hope to implement in the future?
---> The tracking progress using chart is the most challenging one since it is new to me.
+
+The tracking progress using chart is the most challenging one since it is new to me.
 Second is the source of the statistics to measure.
 
 Some of the features I want to implement:

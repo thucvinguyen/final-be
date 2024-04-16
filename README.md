@@ -46,7 +46,7 @@ FitSpace fosters a supportive community where users can connect, view each other
 
 ## ERD
 
-![Alt text](path/to/Untitled.png)
+![Alt text](Untitled.png)
 
 ---
 

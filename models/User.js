@@ -8,15 +8,18 @@ const userSchema = Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true, select: false },
+    gender: { type: String, required: false, enum: ["Male", "Female"] },
     age: { type: Number },
     role: {
       type: String,
       enum: ["Gymer", "Personal Trainer"],
+      required: false,
       default: "",
     },
     goal: {
       type: String,
       enum: ["Lose fat", "Gain muscle", "Maintain health"],
+      required: false,
       default: "",
     },
     weight: { type: Number, required: false, default: 0 },

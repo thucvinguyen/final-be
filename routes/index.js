@@ -12,4 +12,7 @@ router.use("/auth", authApi);
 const userApi = require("./user.api");
 router.use("/users", userApi);
 
+const exerciseApi = require("./exercise.api");
+router.use("/exercises", exerciseApi);
+
 module.exports = router;

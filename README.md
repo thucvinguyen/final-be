@@ -65,7 +65,6 @@ As a user, I can stay signed in after refreshing the page or returning to the ap
 
 As a user, I can update my profile with personal information such as name, avatar, and fitness details.
 As a user, I can view my own profile, including my workout history, meals, and progress.
-As a user, I can view another user's profile given their user ID and see their shared workouts and meals.
 
 ---
 
@@ -85,13 +84,6 @@ As a user, I can log my meals, including details such as name, calories, protein
 As a user, I can view my meal history to track my nutrition intake over time.
 As a user, I can edit the details of a meal, such as name or nutrition content.
 As a user, I can delete meals from my meal history if necessary.
-
----
-
-## Social
-
-As a user, I can follow or connect with other users to see their workouts, meals, and progress.
-As a user, I can add other workouts or meals to my list or leave an inspired emoji to their posts.
 
 ---
 
@@ -226,15 +218,5 @@ Meal APIs
 - @route DELETE /posts/:id
 - @description Delete a post
 - @body
-- @access Login required
-  \*/
-
-Social APIs
-
-/\*\*
-
-- @route POST/reactions
-- @description Save reactions to post
-- @body targetType: 'post', targetId, emoji
 - @access Login required
   \*/

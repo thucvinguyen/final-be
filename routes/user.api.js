@@ -18,28 +18,23 @@ router.post(
       .isEmail()
       .normalizeEmail({ gmail_remove_dots: false }),
     body("password", "Invalid Password").exists().notEmpty(),
-    body("age", "Age is required and must be interger").exists().isInt(),
-    body("role", "Invalid Role").exists().isIn(["Gymer", "Personal Trainer"]),
-    body("goal", "Invalid goal")
-      .exists()
-      .isIn(["Lose fat", "Gain muscle", "Maintain health"]),
   ]),
   userController.register
 );
 
-// // @route GET/users?page=1&limit=10
-// // @description Get users with pagination
-// // @access log in required
+// @route GET/users?page=1&limit=10
+// @description Get users with pagination
+// @access log in required
 // router.get("/", authentication.loginRequired, userController.getUsers);
 
-// // @route GET/users/me
-// // @description Get current user info
-// // @access log in required
-// router.get("/me", authentication.loginRequired, userController.getCurrentUser);
+// @route GET/users/me
+// @description Get current user info
+// @access log in required
+router.get("/me", authentication.loginRequired, userController.getCurrentUser);
 
-// // @route GET/users/:id
-// // @description Get user profile
-// // @access log in required
+// @route GET/users/:id
+// @description Get user profile
+// @access log in required
 // router.get(
 //   "/:id",
 //   authentication.loginRequired,
@@ -49,10 +44,10 @@ router.post(
 //   userController.getSingleUser
 // );
 
-// // @route PUT/users/:id
-// // @description Update user profile
-// // @body {name, avatarUrl, coverUrl... }
-// // @access log in required
+// @route PUT/users/:id
+// @description Update user profile
+// @body {name, avatarUrl, coverUrl... }
+// @access log in required
 // router.put(
 //   "/:id",
 //   authentication.loginRequired,

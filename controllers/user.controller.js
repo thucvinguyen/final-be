@@ -1,4 +1,5 @@
 const User = require("../models/User");
+// const Friend = require("../models/Friend");
 const { sendResponse, AppError, catchAsync } = require("../helpers/utils");
 const bcrypt = require("bcryptjs");
 
@@ -6,7 +7,7 @@ const userController = {};
 
 userController.register = catchAsync(async (req, res) => {
   // get data from request
-  let { name, email, password, age, role, goal } = req.body;
+  let { name, email, password } = req.body;
   // validation
   let user = await User.findOne({ email });
   if (user)
@@ -14,7 +15,7 @@ userController.register = catchAsync(async (req, res) => {
   // process
   const salt = await bcrypt.genSalt(10);
   password = await bcrypt.hash(password, salt);
-  user = await User.create({ name, email, password, age, role, goal });
+  user = await User.create({ name, email, password });
   const accessToken = await user.generateToken();
   // response
   sendResponse(

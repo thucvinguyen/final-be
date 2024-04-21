@@ -1,11 +1,11 @@
 const fs = require("fs");
 const csv = require("csvtojson");
-const Exercise = require("./models/Exercise");
+const Workout = require("./models/Workout");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const createExercise = async () => {
-  let exerciseData = await csv().fromFile("megaGymDataset.csv");
+const createWorkout = async () => {
+  let WorkoutData = await csv().fromFile("megaGymDataset.csv");
 
   const mongoURI =
     "mongodb+srv://thucvi123:LS3fxhMi8EI8MNKL@cluster0.8y5teuw.mongodb.net/gym-space";
@@ -16,7 +16,7 @@ const createExercise = async () => {
 
   let data = JSON.parse(fs.readFileSync("exercises.json"));
 
-  exerciseData = exerciseData.map((e) => {
+  WorkoutData = WorkoutData.map((e) => {
     return {
       name: e.Title,
       part: e.BodyPart,
@@ -27,15 +27,12 @@ const createExercise = async () => {
     };
   });
 
-  console.log(exerciseData);
-  // data.exercises = exerciseData;
-  // fs.writeFileSync("exercises.json", data);
+  console.log(WorkoutData);
+  // data.Workouts = WorkoutData;
+  // fs.writeFileSync("Workouts.json", data);
 
-  fs.writeFileSync(
-    "exercises.json",
-    JSON.stringify({ exercises: exerciseData })
-  );
-  await Exercise.create(exerciseData);
+  fs.writeFileSync("exercises.json", JSON.stringify({ Workouts: WorkoutData }));
+  await Workout.create(WorkoutData);
   console.log("done");
 };
-createExercise();
+createWorkout();

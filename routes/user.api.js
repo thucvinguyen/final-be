@@ -48,13 +48,13 @@ router.get("/me", authentication.loginRequired, userController.getCurrentUser);
 // @description Update user profile
 // @body {name, avatarUrl, coverUrl... }
 // @access log in required
-// router.put(
-//   "/:id",
-//   authentication.loginRequired,
-//   validators.validate([
-//     param("id").exists().isString().custom(validators.checkObjectId),
-//   ]),
-//   userController.updateProfile
-// );
+router.put(
+  "/:id",
+  authentication.loginRequired,
+  validators.validate([
+    param("id").exists().isString().custom(validators.checkObjectId),
+  ]),
+  userController.updateProfile
+);
 
 module.exports = router;

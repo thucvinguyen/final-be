@@ -114,35 +114,30 @@ userController.getCurrentUser = catchAsync(async (req, res) => {
 //   );
 // });
 
-// userController.updateProfile = catchAsync(async (req, res, next) => {
-//   const currentUserId = req.userId;
-//   const userId = req.params.id;
-//   if (currentUserId !== userId)
-//     throw new AppError(400, "Permission Required", "Update User Error");
-//   let user = await User.findById(userId);
-//   if (!user) throw new AppError(400, "User not found", "Update User Error");
+userController.updateProfile = catchAsync(async (req, res, next) => {
+  const currentUserId = req.userId;
+  const userId = req.params.id;
+  if (currentUserId !== userId)
+    throw new AppError(400, "Permission Required", "Update User Error");
+  let user = await User.findById(userId);
+  if (!user) throw new AppError(400, "User not found", "Update User Error");
 
-//   const allows = [
-//     "name",
-//     "avatarUrl",
-//     "coverUrl",
-//     "aboutMe",
-//     "city",
-//     "country",
-//     "company",
-//     "jobTitle",
-//     "facebookLink",
-//     "instagramLink",
-//     "twitterLink",
-//     "linkedinLink",
-//   ];
-//   allows.forEach((field) => {
-//     if (req.body[field] !== undefined) {
-//       user[field] = req.body[field];
-//     }
-//   });
-//   await user.save();
-//   return sendResponse(res, 200, true, user, null, "Update User Successfully");
-// });
+  const allows = [
+    "name",
+    "gender",
+    "age",
+    "height",
+    "weight",
+    "avatarUrl",
+    "goal",
+  ];
+  allows.forEach((field) => {
+    if (req.body[field] !== undefined) {
+      user[field] = req.body[field];
+    }
+  });
+  await user.save();
+  return sendResponse(res, 200, true, user, null, "Update User Successfully");
+});
 
 module.exports = userController;

@@ -12,7 +12,13 @@ router.use("/auth", authApi);
 const userApi = require("./user.api");
 router.use("/users", userApi);
 
+const workoutApi = require("./workout.api");
+router.use("/workouts", workoutApi);
+
 const exerciseApi = require("./exercise.api");
 router.use("/exercises", exerciseApi);
+
+const mealApi = require("./meal.api");
+router.use("/meals", mealApi);
 
 module.exports = router;

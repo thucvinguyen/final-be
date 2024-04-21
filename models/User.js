@@ -8,22 +8,27 @@ const userSchema = Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true, select: false },
-    gender: { type: String, required: false, enum: ["Male", "Female"] },
-    age: { type: Number },
-    role: {
+    gender: {
       type: String,
-      enum: ["Gymer", "Personal Trainer"],
       required: false,
-      default: "",
+      enum: ["Male", "Female", "Other"],
     },
+    age: { type: Number, required: false },
+    // role: {
+    //   type: String,
+    //   enum: ["gymer", "trainer"],
+    //   required: false,
+    //   default: "",
+    // },
     goal: {
       type: String,
-      enum: ["Lose fat", "Gain muscle", "Maintain health"],
+      enum: ["Lose fat", "Gain muscle", "Mantain health"],
       required: false,
       default: "",
     },
     weight: { type: Number, required: false, default: 0 },
     height: { type: Number, required: false, default: 0 },
+    avatarUrl: { type: String, required: false, default: "" },
 
     isDeleted: { type: Boolean, default: false, select: false },
   },

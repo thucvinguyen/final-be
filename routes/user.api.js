@@ -18,6 +18,18 @@ router.post(
       .isEmail()
       .normalizeEmail({ gmail_remove_dots: false }),
     body("password", "Invalid Password").exists().notEmpty(),
+    // body("passwordConfirmation", "Invalid password confirmation")
+    //   .trim()
+    //   .custom((value, { req }) => {
+    //     if (value !== req.body.password) {
+    //       throw new Error("Passwords must match");
+    //     }
+    //     return true;
+    //   }),
+    // body("age", "Invalid Age").trim().isInt({ min: 1 }),
+    // body("goal", "Invalid Goal")
+    //   .trim()
+    //   .isIn(["Lose fat", "Gain muscle", "Maintain health"]),
   ]),
   userController.register
 );

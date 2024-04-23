@@ -14,22 +14,15 @@ const userSchema = Schema(
       enum: ["Male", "Female", "Other"],
     },
     age: { type: Number, required: false },
-    // role: {
-    //   type: String,
-    //   enum: ["gymer", "trainer"],
-    //   required: false,
-    //   default: "",
-    // },
     goal: {
       type: String,
-      enum: ["Lose fat", "Gain muscle", "Mantain health"],
+      enum: ["Lose fat", "Gain muscle", "Maintain health"],
       required: false,
-      default: "",
+      default: "Lose fat",
     },
     weight: { type: Number, required: false, default: 0 },
     height: { type: Number, required: false, default: 0 },
     avatarUrl: { type: String, required: false, default: "" },
-
     isDeleted: { type: Boolean, default: false, select: false },
   },
   {

@@ -19,11 +19,11 @@ router.post(
   mealController.createMeal
 );
 
-// @route GET/meals/user/:userId?page=1&limit=10
+// @route GET/meals/:userId?page=1&limit=10
 // @description Get meals user can see with pagination
 // @access log in required
 router.get(
-  "/user/:userId",
+  "/:userId",
   authentication.loginRequired,
   validators.validate([
     param("userId").exists().isString().custom(validators.checkObjectId),

@@ -14,18 +14,22 @@ router.post(
   authentication.loginRequired,
   validators.validate([
     body("name", "Invalid Name").exists().notEmpty(),
-    // body("caloriesBurned", "Invalid Calories").exists().notEmpty(),
     body("sets", "Invalid Set").exists().notEmpty().isInt({ min: 0 }),
     body("reps", "Invalid Rep").exists().notEmpty().isInt({ min: 0 }),
+    // body("date", "Invalid Date")
+    //   .exists()
+    //   .notEmpty()
+    //   .matches(/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{2}$/),
   ]),
+
   exerciseController.createExercise
 );
 
-// @route GET/exercises/user/:userId?page=1&limit=10
+// @route GET/exercises/:userId?page=1&limit=10
 // @description Get exercises user can see with pagination
 // @access log in required
 router.get(
-  "/user/:userId",
+  "/:userId",
   authentication.loginRequired,
   validators.validate([
     param("userId").exists().isString().custom(validators.checkObjectId),

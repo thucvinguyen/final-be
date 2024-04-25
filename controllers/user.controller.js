@@ -1,5 +1,4 @@
 const User = require("../models/User");
-// const Friend = require("../models/Friend");
 const { sendResponse, AppError, catchAsync } = require("../helpers/utils");
 const bcrypt = require("bcryptjs");
 
@@ -23,39 +22,6 @@ userController.register = catchAsync(async (req, res) => {
     "Create User Successfully"
   );
 });
-// userController.register = catchAsync(async (req, res) => {
-//   const { name, email, password } = req.body;
-
-//   // Check if the user already exists
-//   let user = await User.findOne({ email });
-//   if (user) {
-//     throw new AppError(400, "User already exists", "Registration Error");
-//   }
-
-//   // Hash the password
-//   const salt = await bcrypt.genSalt(10);
-//   const hashedPassword = await bcrypt.hash(password, salt);
-
-//   // Create the user
-//   user = await User.create({
-//     name,
-//     email,
-//     password: hashedPassword,
-//   });
-
-//   // Generate access token
-//   const accessToken = await user.generateToken();
-
-//   // Send response
-//   sendResponse(
-//     res,
-//     200,
-//     true,
-//     { user, accessToken },
-//     null,
-//     "User created successfully"
-//   );
-// });
 
 // userController.getUsers = catchAsync(async (req, res) => {
 //   const currentUserId = req.userId;

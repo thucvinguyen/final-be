@@ -16,6 +16,7 @@ router.post(
     body("name", "Invalid Name").exists().notEmpty(),
     body("sets", "Invalid Set").exists().notEmpty().isInt({ min: 0 }),
     body("reps", "Invalid Rep").exists().notEmpty().isInt({ min: 0 }),
+    body("date", "Invalid Date").exists().notEmpty().isInt({ min: 0 }),
     // body("date", "Invalid Date")
     //   .exists()
     //   .notEmpty()

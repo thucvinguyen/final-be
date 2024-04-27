@@ -29,21 +29,17 @@ workoutController.getWorkouts = catchAsync(async (req, res) => {
   const page = Number(req.query.page) || 1;
   const skip = (page - 1) * limit;
 
-  // Construct the query object based on provided query parameters
   const queryObj = {};
   if (req.query.name)
-    queryObj.name = { $regex: new RegExp(req.query.name, "i") }; // Case-insensitive search for name
+    queryObj.name = { $regex: new RegExp(req.query.name, "i") };
   if (req.query.part) queryObj.part = req.query.part;
   if (req.query.equipment) queryObj.equipment = req.query.equipment;
   if (req.query.level) queryObj.level = req.query.level;
 
-  // Query workouts based on the constructed query object
   const workouts = await Workout.find(queryObj).skip(skip).limit(limit);
 
-  // Count total number of documents matching the query
   const total = await Workout.countDocuments(queryObj);
 
-  // Calculate total pages
   const totalPages = Math.ceil(total / limit);
 
   return sendResponse(

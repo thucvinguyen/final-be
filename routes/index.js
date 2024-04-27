@@ -21,4 +21,7 @@ router.use("/exercises", exerciseApi);
 const mealApi = require("./meal.api");
 router.use("/meals", mealApi);
 
+const feedbackApi = require("./feedback.api");
+router.use("/feedbacks", feedbackApi);
+
 module.exports = router;

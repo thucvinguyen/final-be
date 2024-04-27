@@ -5,14 +5,16 @@ const feedbackSchema = new Schema(
   {
     rating: {
       type: Number,
-      required: true,
+      required: false,
       min: 1,
       max: 5,
     },
-    feedback: {
+    message: {
       type: String,
       required: true,
     },
+    user: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    isDeleted: { type: Boolean, default: false, select: false },
   },
   {
     timestamps: true,

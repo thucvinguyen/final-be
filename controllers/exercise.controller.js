@@ -25,7 +25,7 @@ exerciseController.createExercise = catchAsync(async (req, res) => {
     reps,
     caloriesBurned,
     isDeleted: false,
-    // date,
+    date,
     user: currentUserId,
   });
 

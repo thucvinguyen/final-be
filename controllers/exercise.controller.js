@@ -25,7 +25,7 @@ exerciseController.createExercise = catchAsync(async (req, res) => {
     reps,
     caloriesBurned,
     isDeleted: false,
-    date,
+    // date,
     user: currentUserId,
   });
 
@@ -99,6 +99,9 @@ exerciseController.updateSingleExercise = catchAsync(async (req, res, next) => {
       exercise[field] = req.body[field];
     }
   });
+
+  exercise.caloriesBurned = 30 * exercise.reps * exercise.sets;
+
   await exercise.save();
   return sendResponse(
     res,

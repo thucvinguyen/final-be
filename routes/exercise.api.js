@@ -16,11 +16,7 @@ router.post(
     body("name", "Invalid Name").exists().notEmpty(),
     body("sets", "Invalid Set").exists().notEmpty().isInt({ min: 0 }),
     body("reps", "Invalid Rep").exists().notEmpty().isInt({ min: 0 }),
-    // body("date", "Invalid Date").exists().notEmpty().isInt({ min: 0 }),
-    // body("date", "Invalid Date")
-    //   .exists()
-    //   .notEmpty()
-    //   .matches(/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{2}$/),
+    body("date", "Invalid Date").exists().isISO8601(),
   ]),
 
   exerciseController.createExercise

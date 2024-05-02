@@ -15,7 +15,7 @@ const calculateExerciseCount = async (userId) => {
 // Function to create a new exercise
 exerciseController.createExercise = catchAsync(async (req, res) => {
   const currentUserId = req.userId;
-  const { name, sets, reps } = req.body;
+  const { name, sets, reps, date } = req.body;
 
   const caloriesBurned = 30 * reps * sets;
 
@@ -25,7 +25,7 @@ exerciseController.createExercise = catchAsync(async (req, res) => {
     reps,
     caloriesBurned,
     isDeleted: false,
-    // date,
+    date,
     user: currentUserId,
   });
 

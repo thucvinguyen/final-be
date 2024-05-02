@@ -19,8 +19,10 @@ const userSchema = Schema(
       enum: ["Lose fat", "Gain muscle", "Maintain health"],
       required: true,
     },
-    meal: { type: Schema.Types.ObjectId, ref: "Meal", required: false },
-    exercise: { type: Schema.Types.ObjectId, ref: "Exercise", required: false },
+    meal: [{ type: Schema.Types.ObjectId, ref: "Meal", required: false }],
+    exercise: [
+      { type: Schema.Types.ObjectId, ref: "Exercise", required: false },
+    ],
     weight: { type: Number, required: true },
     height: { type: Number, required: true },
     avatarUrl: { type: String, required: false, default: "" },

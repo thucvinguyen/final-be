@@ -15,6 +15,7 @@ const calculateMealCount = async (userId) => {
 // Function to create a new meal
 mealController.createMeal = catchAsync(async (req, res) => {
   const currentUserId = req.userId;
+
   const { name, calories } = req.body;
 
   let meal = await Meal.create({
@@ -26,6 +27,14 @@ mealController.createMeal = catchAsync(async (req, res) => {
   });
 
   meal = await meal.populate("user");
+
+  const user = await User.findById(currentUserId);
+
+  user.meal.push(meal._id);
+
+  await user.save();
+
+  console.log(user);
 
   return sendResponse(res, 200, true, meal, null, "Create Meal Successfully");
 });

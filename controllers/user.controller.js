@@ -21,8 +21,8 @@ userController.register = catchAsync(async (req, res) => {
     height,
     weight,
     isDeleted: false,
-    meal,
-    exercise,
+    meal: [],
+    exercise: [],
   });
 
   const accessToken = await user.generateToken();

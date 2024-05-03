@@ -1,4 +1,6 @@
 const User = require("../models/User");
+const Meal = require("../models/Meal");
+const Exercise = require("../models/Exercise");
 const { sendResponse, AppError, catchAsync } = require("../helpers/utils");
 const bcrypt = require("bcryptjs");
 
@@ -91,12 +93,59 @@ userController.getCurrentUser = catchAsync(async (req, res) => {
   );
 });
 
+// filter exercises and meals that isDeleted is false only, then update the user
+// userController.getSingleUser = catchAsync(async (req, res, next) => {
+//   const userId = req.params.id;
+
+//   const filterCriteria = {
+//     user: userId,
+//     isDeleted: false,
+//   };
+
+//   const meal = await Meal.find(filterCriteria)
+//   const exercise = await Exercise.find(filterCriteria)
+//   let user = await User.findById(userId).populate("meal").populate("exercise");
+//   if (!user) throw new AppError(400, "User not found", "Get Single User Error");
+
+//   user = user.toJSON();
+
+//   return sendResponse(
+//     res,
+//     200,
+//     true,
+//     user,
+//     null,
+//     "Get Single User Successfully"
+//   );
+// });
 userController.getSingleUser = catchAsync(async (req, res, next) => {
   const userId = req.params.id;
-  let user = await User.findById(userId).populate("meal").populate("exercise");
-  if (!user) throw new AppError(400, "User not found", "Get Single User Error");
+
+  const filterCriteria = {
+    user: userId,
+    isDeleted: false,
+  };
+
+  const meals = await Meal.find(filterCriteria);
+  const exercises = await Exercise.find(filterCriteria);
+
+  let user = await User.findById(userId)
+    .populate({
+      path: "meal",
+      match: filterCriteria,
+    })
+    .populate({
+      path: "exercise",
+      match: filterCriteria,
+    });
+
+  if (!user) {
+    throw new AppError(400, "User not found", "Get Single User Error");
+  }
 
   user = user.toJSON();
+  user.meal = meals;
+  user.exercise = exercises;
 
   return sendResponse(
     res,

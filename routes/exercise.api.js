@@ -16,7 +16,7 @@ router.post(
     body("name", "Invalid Name").exists().notEmpty(),
     body("sets", "Invalid Set").exists().notEmpty().isInt({ min: 0 }),
     body("reps", "Invalid Rep").exists().notEmpty().isInt({ min: 0 }),
-    body("date", "Invalid Date").exists().isISO8601(),
+    // body("date", "Invalid Date").exists().isISO8601(),
   ]),
 
   exerciseController.createExercise

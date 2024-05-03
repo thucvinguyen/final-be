@@ -7,7 +7,7 @@ const exerciseSchema = new Schema(
     caloriesBurned: { type: Number, required: false, min: 0 },
     sets: { type: Number, required: true, min: 1 },
     reps: { type: Number, required: true, min: 1 },
-    date: { type: Date, required: true },
+    // date: { type: Date, required: true },
     user: { type: Schema.Types.ObjectId, ref: "User", required: true },
     isDeleted: { type: Boolean, default: false, select: false },
   },

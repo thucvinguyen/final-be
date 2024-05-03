@@ -34,8 +34,6 @@ mealController.createMeal = catchAsync(async (req, res) => {
 
   await user.save();
 
-  console.log(user);
-
   return sendResponse(res, 200, true, meal, null, "Create Meal Successfully");
 });
 
@@ -100,11 +98,21 @@ mealController.deleteSingleMeal = catchAsync(async (req, res, next) => {
   const currentUserId = req.userId;
   const mealId = req.params.id;
 
-  const meal = await Meal.findOneAndUpdate(
+  // const meal = await Meal.findOneAndUpdate(
+  //   { _id: mealId, user: currentUserId },
+  //   { isDeleted: true },
+  //   { new: true }
+  // );
+  const meal = await Meal.findOneAndDelete(
     { _id: mealId, user: currentUserId },
     { isDeleted: true },
     { new: true }
   );
+
+  // await User.findOneAndUpdate(
+  //   { _id: currentUserId },
+  //   { $pull: { meal: mealId } }
+  // );
 
   if (!meal)
     throw new AppError(

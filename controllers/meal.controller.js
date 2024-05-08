@@ -16,13 +16,13 @@ const calculateMealCount = async (userId) => {
 mealController.createMeal = catchAsync(async (req, res) => {
   const currentUserId = req.userId;
 
-  const { name, calories } = req.body;
+  const { name, calories, date } = req.body;
 
   let meal = await Meal.create({
     name,
     calories,
+    date,
     isDeleted: false,
-    date: Date.now(),
     user: currentUserId,
   });
 
@@ -84,7 +84,7 @@ mealController.updateSingleMeal = catchAsync(async (req, res, next) => {
   if (!meal.user.equals(currentUserId))
     throw new AppError(400, "Only author can edit meal", "Update Meal Error");
 
-  const allows = ["name", "calories"];
+  const allows = ["name", "calories", "date"];
   allows.forEach((field) => {
     if (req.body[field] !== undefined) {
       meal[field] = req.body[field];

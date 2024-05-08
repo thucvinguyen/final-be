@@ -15,7 +15,7 @@ const calculateExerciseCount = async (userId) => {
 // Function to create a new exercise
 exerciseController.createExercise = catchAsync(async (req, res) => {
   const currentUserId = req.userId;
-  const { name, sets, reps } = req.body;
+  const { name, sets, reps, date } = req.body;
 
   const caloriesBurned = 30 * reps * sets;
 
@@ -23,9 +23,9 @@ exerciseController.createExercise = catchAsync(async (req, res) => {
     name,
     sets,
     reps,
+    date,
     caloriesBurned,
     isDeleted: false,
-    // date,
     user: currentUserId,
   });
 
@@ -99,7 +99,7 @@ exerciseController.updateSingleExercise = catchAsync(async (req, res, next) => {
       "Update Exercise Error"
     );
 
-  const allows = ["name", "sets", "reps"];
+  const allows = ["name", "sets", "reps", "date"];
   allows.forEach((field) => {
     if (req.body[field] !== undefined) {
       exercise[field] = req.body[field];

@@ -15,6 +15,7 @@ router.post(
   validators.validate([
     body("name", "Invalid Name").exists().notEmpty(),
     body("calories", "Invalid Calories").exists().notEmpty().isInt({ min: 0 }),
+    body("date", "Invalid Date").exists().isISO8601(),
   ]),
   mealController.createMeal
 );

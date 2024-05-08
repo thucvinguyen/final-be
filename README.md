@@ -49,7 +49,7 @@ GymSpace fosters a supportive community where users can connect, view each other
 
 ## ERD
 
-![Alt text](Untitled.png)
+![Alt text](Diagram.png)
 
 ---
 

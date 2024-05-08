@@ -52,31 +52,31 @@ workoutController.getWorkouts = catchAsync(async (req, res) => {
   );
 });
 
-workoutController.getWorkoutsByName = catchAsync(async (req, res) => {
-  const { name } = req.params;
+// workoutController.getWorkoutsByName = catchAsync(async (req, res) => {
+//   const { name } = req.params;
 
-  const workouts = await Workout.find({
-    name: { $regex: new RegExp(`.*${name}.*`, "i") },
-  });
+//   const workouts = await Workout.find({
+//     name: { $regex: new RegExp(`.*${name}.*`, "i") },
+//   });
 
-  const total = await Workout.countDocuments({
-    name: { $regex: new RegExp(`.*${name}.*`, "i") },
-  });
+//   const total = await Workout.countDocuments({
+//     name: { $regex: new RegExp(`.*${name}.*`, "i") },
+//   });
 
-  if (!workouts || workouts.length === 0)
-    throw new AppError(
-      400,
-      "Cannot get workout with this name",
-      "Get Workouts Error"
-    );
-  return sendResponse(
-    res,
-    200,
-    true,
-    { workouts, total },
-    null,
-    "Get Workout Successfully"
-  );
-});
+//   if (!workouts || workouts.length === 0)
+//     throw new AppError(
+//       400,
+//       "Cannot get workout with this name",
+//       "Get Workouts Error"
+//     );
+//   return sendResponse(
+//     res,
+//     200,
+//     true,
+//     { workouts, total },
+//     null,
+//     "Get Workout Successfully"
+//   );
+// });
 
 module.exports = workoutController;

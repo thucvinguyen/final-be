@@ -139,6 +139,14 @@ User APIs
 - @access Login required
   \*/
 
+Workout APIs
+/\*\*
+
+- @route GET /workouts
+- @description Get workouts by query parameters (name, part, equipment, etc.)
+- @access Log in required
+  \*/
+
 Excercise APIs
 /\*\*
 
@@ -152,14 +160,6 @@ Excercise APIs
 
 - @route GET /posts/user/userId? page=1&limit=10
 - @description Get all posts a user can see with pagination
-- @body
-- @access Login required
-  \*/
-
-/\*\*
-
-- @route GET /posts/:id
-- @description Get a single post
 - @body
 - @access Login required
   \*/
@@ -199,14 +199,6 @@ Meal APIs
 
 /\*\*
 
-- @route GET /posts/:id
-- @description Get a single post
-- @body
-- @access Login required
-  \*/
-
-/\*\*
-
 - @route PUT /posts/:id
 - @description Update a post
 - @body {content}
@@ -230,3 +222,4 @@ Feedback APIs
 - @body rating, feedback
 - @login required
   \*/
+# finall-be

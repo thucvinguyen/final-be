@@ -37,13 +37,13 @@ Some of the features I want to implement:
 
 ## Background
 
-FitSpace is a fitness and workout tracking platform that helps individuals take control of their health and fitness journey. Users can create accounts with a unique email, name, and password.
+GymSpace is a fitness and workout tracking platform that helps individuals take control of their health and fitness journey. Users can create accounts with a unique email, name, and password.
 
-FitSpace allows users to log workouts and exercises, including sets, reps, and weights used. Users can also track meals with nutritional information like calories, protein, carbs, and fats.
+GymSpace allows users to log workouts and exercises, including sets, reps, and weights used. Users can also track meals with nutritional information like calories, protein, carbs, and fats.
 
 The platform enables users to monitor their workout and meal history, adjusting routines or diet as needed. Users can track progress toward fitness goals and see overall improvement.
 
-FitSpace fosters a supportive community where users can connect, view each other's logs, meal plans, and progress. Users can leave support and encouragement on other's log. FitSpace empowers users to reach fitness goals within a community of like-minded individuals.
+GymSpace fosters a supportive community where users can connect, view each other's logs, meal plans, and progress. Users can leave support and encouragement on other's log. GymSpace empowers users to reach fitness goals within a community of like-minded individuals.
 
 ---
 
@@ -70,8 +70,8 @@ As a user, I can view my own profile, including my workout history, meals, and p
 
 ## Workouts
 
-As a user, I can create a new workout with a name, date, duration, and notes.
-As a user, I can add exercises to a workout, specifying sets, reps, and weight for each exercise.
+As a user, I can create a new workout with a name, date, duration.
+As a user, I can add exercises to a workout, specifying sets and reps for each exercise.
 As a user, I can edit my workouts, such as name, date, or exercises.
 As a user, I can delete my workouts if they are no longer relevant.
 As a user, I can view my workout history to track my progress over time.
@@ -80,7 +80,7 @@ As a user, I can view my workout history to track my progress over time.
 
 ## Meals
 
-As a user, I can log my meals, including details such as name, calories, protein, carbs, and fats.
+As a user, I can log my meals, including details such as name and calories.
 As a user, I can view my meal history to track my nutrition intake over time.
 As a user, I can edit the details of a meal, such as name or nutrition content.
 As a user, I can delete meals from my meal history if necessary.
@@ -219,4 +219,14 @@ Meal APIs
 - @description Delete a post
 - @body
 - @access Login required
+  \*/
+
+Feedback APIs
+
+/\*\*
+
+- @route POST/feedbacks
+- @description Create new feedback
+- @body rating, feedback
+- @login required
   \*/

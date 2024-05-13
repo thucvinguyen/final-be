@@ -6,9 +6,9 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const { sendResponse, AppError } = require("./helpers/utils");
-
+const session = require("express-session");
+const passport = require("./middlewares/passport");
 const indexRouter = require("./routes/index");
-
 const app = express();
 
 app.use(logger("dev"));
@@ -17,6 +17,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
+
+// Passport set up
+app.use(
+  session({
+    secret: "your_secret_key",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Mount authentication routes
+// app.use("/api", authRouter); // Adjust the path as needed
 
 app.use("/api", indexRouter);
 

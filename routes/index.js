@@ -1,10 +1,24 @@
 var express = require("express");
 var router = express.Router();
+// require("../middlewares/passport");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.send({ status: "Welcome", data: "Hello" });
 });
+
+// router.get(
+//   "/auth/google",
+//   passport.authenticate("google", { scope: ["email", "profile"] })
+// );
+
+// router.get(
+//   "/auth/google/callback",
+//   passport.authenticate("google", {
+//     successRedirect: "/auth/google/success",
+//     failureRedirect: "/auth/google/failure",
+//   })
+// );
 
 const authApi = require("./auth.api");
 router.use("/auth", authApi);

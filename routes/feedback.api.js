@@ -14,7 +14,7 @@ router.post(
   "/",
   authentication.loginRequired,
   validators.validate([
-    // body("rating", "Rating must be between 1 and 5").isInt({ min: 1, max: 5 }),
+    body("rating", "Rating must be between 1 and 5").isInt({ min: 1, max: 5 }),
     body("message", "Message is required").notEmpty(),
   ]),
   feedbackController.createFeedback

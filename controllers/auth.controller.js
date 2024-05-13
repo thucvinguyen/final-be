@@ -25,4 +25,15 @@ authController.loginWithEmail = catchAsync(async (req, res, next) => {
   );
 });
 
+authController.loginGoogleSuccess = (req, res, next) => {
+  // sendResponse(res, 200, true, null, "Login with Google Successfully");
+  if (!req.user) res.redirect("failure");
+  console.log(req.user);
+  res.send("Welcome" + req.user.email);
+};
+authController.loginGoogleFailure = (req, res, next) => {
+  // sendResponse(res, 200, true, null, "Login with Google Fail");
+  res.send("Error");
+};
+
 module.exports = authController;

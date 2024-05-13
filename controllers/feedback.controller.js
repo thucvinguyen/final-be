@@ -6,10 +6,11 @@ const feedbackController = {};
 
 feedbackController.createFeedback = catchAsync(async (req, res) => {
   const currentUserId = req.userId;
-  let { message } = req.body;
+  let { message, rating } = req.body;
 
   let feedback = await Feedback.create({
     message,
+    rating,
     isDeleted: false,
     user: currentUserId,
   });

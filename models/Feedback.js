@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const feedbackSchema = new Schema(
   {
-    // rating: {
-    //   type: Number,
-    //   required: false,
-    //   min: 1,
-    //   max: 5,
-    // },
+    rating: {
+      type: Number,
+      required: false,
+      min: 1,
+      max: 5,
+    },
     message: {
       type: String,
       required: true,

@@ -22,24 +22,4 @@ router.post(
   authController.loginWithEmail
 );
 
-// passport
-// router.use(passport.initialize());
-// router.use(passport.session());
-
-// router.get(
-//   "/auth/google",
-//   passport.authenticate("google", { scope: ["email", "profile"] })
-// );
-
-// router.get(
-//   "/auth/google/callback",
-//   passport.authenticate("google", {
-//     successRedirect: "/auth/google/success",
-//     failureRedirect: "/auth/google/failure",
-//   })
-// );
-
-// router.get("/success", authController.loginGoogleSuccess);
-// router.get("/failure", authController.loginGoogleFailure);
-
 module.exports = router;

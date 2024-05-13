@@ -3,8 +3,6 @@ const authController = require("../controllers/auth.controller");
 const { body } = require("express-validator");
 const validators = require("../middlewares/validators");
 const router = express.Router();
-const passport = require("passport");
-require("../middlewares/passport");
 
 // @route POST/auth/login
 // @description Log in with email and password

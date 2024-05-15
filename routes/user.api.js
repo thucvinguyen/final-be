@@ -40,6 +40,15 @@ router.get("/", authentication.loginRequired, userController.getUsers);
 // @access log in required
 router.get("/me", authentication.loginRequired, userController.getCurrentUser);
 
+// @route GET/users/me/details
+// @description Get current user info
+// @access log in required
+router.get(
+  "/details",
+  authentication.loginRequired,
+  userController.getCurrentUserDetails
+);
+
 // @route GET/users/:id
 // @description Get user profile
 // @access log in required

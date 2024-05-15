@@ -20,4 +20,14 @@ router.post(
   authController.loginWithEmail
 );
 
+// @route POST /auth/google-login
+// @description Log in with Google
+// @body token
+// @access public
+router.post(
+  "/google-login",
+  validators.validate([body("token", "Invalid token").exists().notEmpty()]),
+  authController.loginWithGoogle
+);
+
 module.exports = router;

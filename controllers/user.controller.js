@@ -78,6 +78,24 @@ userController.getUsers = catchAsync(async (req, res) => {
 
 userController.getCurrentUser = catchAsync(async (req, res) => {
   const currentUserId = req.userId;
+  // Exclude 'meal' and 'exercise' fields from the user object
+  const user = await User.findById(currentUserId).select("-meal -exercise");
+
+  if (!user)
+    throw new AppError(400, "User not found", "Get Current User Error");
+
+  return sendResponse(
+    res,
+    200,
+    true,
+    user,
+    null,
+    "Get Current User Successfully"
+  );
+});
+
+userController.getCurrentUserDetails = catchAsync(async (req, res) => {
+  const currentUserId = req.userId;
   const user = await User.findById(currentUserId)
     .populate("meal")
     .populate("exercise");
@@ -89,35 +107,12 @@ userController.getCurrentUser = catchAsync(async (req, res) => {
     true,
     user,
     null,
-    "Get Current User Successfully"
+    "Get Full Current User Details Successfully"
   );
 });
 
 // filter exercises and meals that isDeleted is false only, then update the user
-// userController.getSingleUser = catchAsync(async (req, res, next) => {
-//   const userId = req.params.id;
 
-//   const filterCriteria = {
-//     user: userId,
-//     isDeleted: false,
-//   };
-
-//   const meal = await Meal.find(filterCriteria)
-//   const exercise = await Exercise.find(filterCriteria)
-//   let user = await User.findById(userId).populate("meal").populate("exercise");
-//   if (!user) throw new AppError(400, "User not found", "Get Single User Error");
-
-//   user = user.toJSON();
-
-//   return sendResponse(
-//     res,
-//     200,
-//     true,
-//     user,
-//     null,
-//     "Get Single User Successfully"
-//   );
-// });
 userController.getSingleUser = catchAsync(async (req, res, next) => {
   const userId = req.params.id;
 

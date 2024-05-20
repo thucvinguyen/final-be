@@ -110,6 +110,14 @@ User APIs
 /\*\*
 
 - @route GET /users/me
+- @description Get current user info (excluding meals and exercises data)
+- @body
+- @access Login required
+  \*/
+
+/\*\*
+
+- @route GET /users/details
 - @description Get current user info
 - @body
 - @access Login required

@@ -23,8 +23,8 @@ const userSchema = Schema(
     exercise: [
       { type: Schema.Types.ObjectId, ref: "Exercise", required: false },
     ],
-    weight: { type: Number, required: false },
-    height: { type: Number, required: false },
+    weight: { type: Number, required: false, default: 0 },
+    height: { type: Number, required: false, default: 0 },
     avatarUrl: { type: String, required: false, default: "" },
     isDeleted: { type: Boolean, default: false, select: false },
   },

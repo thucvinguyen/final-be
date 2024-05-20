@@ -26,39 +26,6 @@ authController.loginWithEmail = catchAsync(async (req, res, next) => {
   );
 });
 
-// authController.loginWithGoogle = catchAsync(async (req, res, next) => {
-//   const { token } = req.body;
-
-//   // Verify the token with Firebase Admin SDK
-//   let decodedToken;
-//   try {
-//     decodedToken = await admin.auth().verifyIdToken(token);
-//   } catch (error) {
-//     throw new AppError(401, "Invalid Google token", "Login Error");
-//   }
-
-//   const { email, name, picture, uid } = decodedToken;
-
-//   // Find or create the user in the database
-//   let user = await User.findOne({ email });
-//   if (!user) {
-//     user = await User.create({ email, name, picture, uid });
-//   }
-
-//   // Generate an access token for the user
-//   const accessToken = await user.generateToken();
-
-//   // Send response
-//   sendResponse(
-//     res,
-//     200,
-//     true,
-//     { user, accessToken },
-//     null,
-//     "Login Successfully"
-//   );
-// });
-
 authController.loginWithGoogle = catchAsync(async (req, res, next) => {
   const { token } = req.body;
 

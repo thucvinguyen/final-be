@@ -38,16 +38,13 @@ authController.loginWithGoogle = catchAsync(async (req, res, next) => {
 
   const { email, name } = decodedToken;
 
-  // Find or create the user in the database
   let user = await User.findOne({ email });
   if (!user) {
     user = await User.create({ email, name });
   }
 
-  // Generate an access token for the user
   const accessToken = await user.generateToken();
 
-  // Send response
   sendResponse(
     res,
     200,

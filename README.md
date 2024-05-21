@@ -16,9 +16,9 @@ In my application,
 
 - For those who are new to gym, it will provide list of exercise of each part of the body.
 - For those who are gym-aholic, they can track the exercise they did and share their new achievements.
-- It allow users to add up to 10 exercises and log to their profile.
+- It allow users to add exercises and log to their profile.
 - It allow users to log calories of meals they eat in a day to their profile.
-- It provides users with a broad view of calories they consumed and burnt in day/week/month through charts.
+- It provides users with a broad view of calories they consumed and burnt in months.
 
 Some of the challenges you faced and features you hope to implement in the future?
 
@@ -29,7 +29,6 @@ Some of the features I want to implement:
 
 - Users log their exercises and my app will calculate calories burnt.
 - Users log their calories of their meals.
-- My app will calculate if that they their calories is surplus or deficit.
 
 ---
 

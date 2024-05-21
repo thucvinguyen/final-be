@@ -28,8 +28,6 @@ const createWorkout = async () => {
   });
 
   console.log(WorkoutData);
-  // data.Workouts = WorkoutData;
-  // fs.writeFileSync("Workouts.json", data);
 
   fs.writeFileSync("exercises.json", JSON.stringify({ Workouts: WorkoutData }));
   await Workout.create(WorkoutData);

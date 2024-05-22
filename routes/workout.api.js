@@ -5,19 +5,6 @@ const { body, param, query } = require("express-validator");
 const validators = require("../middlewares/validators");
 const authentication = require("../middlewares/authentication");
 
-// @route GET/workouts/:name
-// @description Get workouts by name
-// @access log in required
-// router.get(
-//   "/:name",
-//   authentication.loginRequired,
-//   validators.validate([
-//     param("name", "Username cannot empty").notEmpty(),
-//     param("name", "Username must be Alphabet").matches(/^[A-Za-z\s]+$/),
-//   ]),
-//   workoutController.getWorkoutsByName
-// );
-
 // @route GET /workouts
 // @description Get workouts by query parameters (name, part, equipment, etc.)
 // @access Log in required

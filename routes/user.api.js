@@ -20,8 +20,10 @@ router.post(
     body("password", "Invalid Password").exists().notEmpty(),
     body("height", "Height must be at least 100cm")
       .exists()
-      .isInt({ min: 100 }),
-    body("weight", "Weight must be at least 10kg").exists().isInt({ min: 10 }),
+      .isFloat({ min: 100 }),
+    body("weight", "Weight must be at least 10kg")
+      .exists()
+      .isFloat({ min: 10 }),
     body("goal", "Invalid Goal")
       .exists()
       .isIn(["Lose fat", "Gain muscle", "Maintain health"]),

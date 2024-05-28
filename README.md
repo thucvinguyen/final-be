@@ -67,12 +67,19 @@ As a user, I can view my own profile, including my workout history, meals, and p
 
 ---
 
-## Workouts
+## Workout
 
-As a user, I can create a new workout with a name, date, duration.
+As a user, I can search for workout information by search bar or filter criteria.
+As a user, I can add workout from the library to my own fitness tracker.
+
+---
+
+## Exercise
+
+As a user, I can create a new exercise with a name, date, duration.
 As a user, I can add exercises to a workout, specifying sets and reps for each exercise.
-As a user, I can edit my workouts, such as name, date, or exercises.
-As a user, I can delete my workouts if they are no longer relevant.
+As a user, I can edit my exercises, such as name, date, or sets and reps.
+As a user, I can delete my exercises if they are no longer relevant.
 As a user, I can view my workout history to track my progress over time.
 
 ---

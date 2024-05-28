@@ -7,8 +7,7 @@ const bcrypt = require("bcryptjs");
 const userController = {};
 
 userController.register = catchAsync(async (req, res) => {
-  let { name, email, password, gender, goal, height, weight, meal, exercise } =
-    req.body;
+  let { name, email, password, gender, goal, height, weight } = req.body;
   let user = await User.findOne({ email });
   if (user)
     throw new AppError(400, "User already existed", "Registration Error");

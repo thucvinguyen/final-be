@@ -15,7 +15,6 @@ What does your application do? What features contribute to solving given issues?
 In my application,
 
 - For those who are new to gym, it will provide list of exercise of each part of the body.
-- For those who are gym-aholic, they can track the exercise they did and share their new achievements.
 - It allow users to add exercises and log to their profile.
 - It allow users to log calories of meals they eat in a day to their profile.
 - It provides users with a broad view of calories they consumed and burnt in months.

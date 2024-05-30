@@ -3,6 +3,7 @@ const csv = require("csvtojson");
 const Workout = require("./models/Workout");
 const mongoose = require("mongoose");
 require("dotenv").config();
+const { faker } = require("@faker-js/faker");
 
 const createWorkout = async () => {
   let WorkoutData = await csv().fromFile("megaGymDataset.csv");
@@ -16,14 +17,16 @@ const createWorkout = async () => {
 
   let data = JSON.parse(fs.readFileSync("exercises.json"));
 
-  WorkoutData = WorkoutData.map((e) => {
+  WorkoutData = WorkoutData.map((item, index) => {
     return {
-      name: e.Title,
-      part: e.BodyPart,
-      equipment: e.Equipment,
-      level: e.Level,
-      description: e.Desc,
-      type: e.Type,
+      id: index + 1,
+      name: item.Title,
+      part: item.BodyPart,
+      equipment: item.Equipment,
+      level: item.Level,
+      description: item.Desc || "",
+      type: item.Type,
+      videoLink: faker.internet.url(),
     };
   });
 

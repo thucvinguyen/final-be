@@ -9,6 +9,7 @@ const workoutSchema = new Schema(
     level: { type: String, required: true },
     type: { type: String, required: true },
     description: { type: String, required: true },
+    videoLink: { type: String, required: true },
     isDeleted: { type: Boolean, default: false, select: false },
   },
 

@@ -20,4 +20,16 @@ router.get(
   workoutController.getWorkouts
 );
 
+// @route GET /workouts by id
+// @description Get Single Workout By ID
+// @access Log in required
+router.get(
+  "/:id",
+  authentication.loginRequired,
+  validators.validate([
+    param("id").exists().isString().custom(validators.checkObjectId),
+  ]),
+  workoutController.getWorkoutsById
+);
+
 module.exports = router;

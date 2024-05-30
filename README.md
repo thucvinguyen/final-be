@@ -21,13 +21,8 @@ In my application,
 
 Some of the challenges you faced and features you hope to implement in the future?
 
-The tracking progress using chart is the most challenging one since it is new to me.
-Second is the source of the statistics to measure.
-
-Some of the features I want to implement:
-
-- Users log their exercises and my app will calculate calories burnt.
-- Users log their calories of their meals.
+- The tracking progress using chart instead of using card for each day.
+- The plan features where users can actually purchase their desired plan.
 
 ---
 

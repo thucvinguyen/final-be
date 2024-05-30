@@ -31,4 +31,22 @@ workoutController.getWorkouts = catchAsync(async (req, res) => {
   );
 });
 
+workoutController.getWorkoutsById = catchAsync(async (req, res) => {
+  const workoutId = req.params.id;
+
+  const workout = await Workout.findById(workoutId);
+
+  if (!workout) {
+    throw new AppError(400, "Workout not found", "Get Single Workout Error");
+  }
+
+  return sendResponse(
+    res,
+    200,
+    true,
+    { workout },
+    "Get Workouts By ID Successfully"
+  );
+});
+
 module.exports = workoutController;
